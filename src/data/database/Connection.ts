@@ -1,18 +1,13 @@
 import { Sequelize } from "sequelize";
+import config from "./config.json";
 
 export default {
-  //Mock info
   getConnection: () => {
-    return new Sequelize("database", "username", "password", {
-      host: "localhost",
-      dialect: "sqlite",
-      pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000,
-      },
-      storage: "database.sqlite",
+    const connection = new Sequelize(config.DATABASE, config.DB_USERNAME, config.DB_PASSWORD, {
+      host: config.DB_HOST,
+      dialect: "mysql",
+      logging: false,
     });
+    return connection;
   },
 };
