@@ -16,13 +16,13 @@ const generateToken = (req: Request, res: Response) => {
     expiresIn: process.env.TOKEN_EXPIRATION_TIME,
   });
 
-  res.json({ token, status: 200 });
+  res.status(200).json({ token });
 };
 
 const validateToken = (req: Request, res: Response) => {
   const logger = getLoggerInstance();
   logger.logInfo("validateToken");
-  res.json({ message: "Valid!", status: 200 });
+  res.status(200).json({ message: "Valid!" });
 };
 
 export { generateToken, validateToken };
