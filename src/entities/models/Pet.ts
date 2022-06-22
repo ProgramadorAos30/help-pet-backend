@@ -1,13 +1,13 @@
 import { DataTypes } from "sequelize";
 import Connection from "../../data/database/Connection";
 
-export const OrganizationModel = Connection.getConnection().define(
-  "Organization",
+export const PetModel = Connection.getConnection().define(
+  "Pet",
   {
     id: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      field: "organization_id",
+      field: "pet_id",
       autoIncrement: true,
       primaryKey: true,
     },
@@ -21,16 +21,16 @@ export const OrganizationModel = Connection.getConnection().define(
     profileImage: {
       type: DataTypes.STRING,
       field: "profile_image",
+      allowNull: false,
     },
-    latitude: {
+    animalType: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: "lat_location",
+      field: "animal_type",
     },
-    longitude: {
+    breed: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: "long_location",
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -47,6 +47,8 @@ export const OrganizationModel = Connection.getConnection().define(
     },
   },
   {
-    tableName: "tb_organization",
+    tableName: "tb_pet",
   }
 );
+
+

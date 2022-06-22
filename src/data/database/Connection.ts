@@ -1,10 +1,11 @@
 import { Sequelize } from "sequelize";
-import config from "./config.json";
+import config from "../../../config/config.json";
 
 export default {
   getConnection: () => {
-    const connection = new Sequelize(config.DATABASE, config.DB_USERNAME, config.DB_PASSWORD, {
-      host: config.DB_HOST,
+    const { development } = config;
+    const connection = new Sequelize(development.database, development.username, development.password, {
+      host: development.host,
       dialect: "mysql",
       logging: false,
     });

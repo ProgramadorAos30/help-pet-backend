@@ -70,7 +70,6 @@ const updateOrganization = async (req: Request, res: Response) => {
     res.status(500).json({ message: (error as ValidationError).errors });
     return;
   }
-  console.log(updatedOrganization);
   if ((updatedOrganization.id ?? 0) < 1) {
     res.status(400).json({ message: "Invalid organization id" });
     return;
